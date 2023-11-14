@@ -102,6 +102,7 @@ const c = new C('instance of C');
 const d: C = { foo: 'object literal' };
  */
 
+/*
 // - Any type pasks bugs and stops Typescript language
 // - service from helping you. (no autocomplete for type any),
 // - (no rename for type any)
@@ -127,9 +128,10 @@ calcuateAge(birthDate);
 interface ComponentProps {
   onSelectItem: (item: number) => void;
 }
-function renderSelector(props: ComponentProps) { /* ... */ }
+function renderSelector(props: ComponentProps) { }
 let selectedId: number = 0;
 function handleSelectedItem(item: any) {
   selectedId = item.id;
 }
 renderSelector({ onSelectItem: handleSelectedItem});
+ */

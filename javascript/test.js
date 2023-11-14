@@ -98,22 +98,36 @@ class C {
 const c = new C('instance of C');
 const d: C = { foo: 'object literal' };
  */
+/*
 // - Any type pasks bugs and stops Typescript language
 // - service from helping you. (no autocomplete for type any),
 // - (no rename for type any)
+
 // it lets you do things that are not type safe
-let age;
+let age: number;
 age = '12';
-age = '12';
+age = '12' as any;
 age += 1;
 console.log(age);
+
 // it breaks contracts
-function calcuateAge(birthDate) { return 0; }
-let birthDate = '1990-01-01';
+function calcuateAge(birthDate: Date): number { return 0; }
+let birthDate: any = '1990-01-01'
 calcuateAge(birthDate);
-function renderSelector(props) { }
-let selectedId = 0;
-function handleSelectedItem(item) {
-    selectedId = item.id;
+
+// version that masks bugs (using any) of ComponentProps
+// interface ComponentProps {
+//   onSelectItem: (item: any) => void;
+// }
+
+// reworked version of ComponentProps
+interface ComponentProps {
+  onSelectItem: (item: number) => void;
 }
-renderSelector({ onSelectItem: handleSelectedItem });
+function renderSelector(props: ComponentProps) { }
+let selectedId: number = 0;
+function handleSelectedItem(item: any) {
+  selectedId = item.id;
+}
+renderSelector({ onSelectItem: handleSelectedItem});
+ */
